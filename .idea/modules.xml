@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/freemindkata.iml" filepath="$PROJECT_DIR$/.idea/modules/freemindkata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/freemindkata_main.iml" filepath="$PROJECT_DIR$/.idea/modules/freemindkata_main.iml" group="freemindkata" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/freemindkata_test.iml" filepath="$PROJECT_DIR$/.idea/modules/freemindkata_test.iml" group="freemindkata" />
+    </modules>
+  </component>
+</project>
