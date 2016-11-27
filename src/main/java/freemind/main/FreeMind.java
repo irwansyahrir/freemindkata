@@ -484,8 +484,9 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	}
 
 	public void saveProperties(boolean pIsShutdown) {
-		try {
-			OutputStream out = new FileOutputStream(autoPropertiesFile);
+        OutputStream out = null;
+        try {
+			out = new FileOutputStream(autoPropertiesFile);
 			final OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
 					out, "8859_1");
 			outputStreamWriter.write("#FreeMind ");
@@ -495,10 +496,17 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			//to save as few props as possible.
 			Properties toBeStored = Tools.copyChangedProperties(props, defProps);
 			toBeStored.store(out, null);
-			out.close();
-		} catch (Exception ex) {
+        } catch (Exception ex) {
 			Resources.getInstance().logException(ex);
-		}
+		} finally {
+            //TODO : Fix this later
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 		getController().getFilterController().saveConditions();
 		if (pIsShutdown && mEditServer != null) {
 			mEditServer.stopServer();
