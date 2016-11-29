@@ -66,7 +66,7 @@ import freemind.controller.Controller;
 import freemind.controller.NodeKeyListener;
 import freemind.controller.NodeMotionListener;
 import freemind.controller.NodeMouseMotionListener;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.Resources;
 import freemind.main.Tools;
 import freemind.main.Tools.Pair;
@@ -295,7 +295,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 		if (standardNodeTextColor == null) {
 			try {
 				String stdcolor = getController().getFrame().getProperty(
-						FreeMind.RESOURCES_BACKGROUND_COLOR);
+						FreeMindContants.RESOURCES_BACKGROUND_COLOR);
 				standardMapBackgroundColor = Tools.xmlToColor(stdcolor);
 			} catch (Exception ex) {
 				freemind.main.Resources.getInstance().logException(ex);
@@ -303,7 +303,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 			}
 			try {
 				String stdcolor = getController().getFrame().getProperty(
-						FreeMind.RESOURCES_NODE_TEXT_COLOR);
+						FreeMindContants.RESOURCES_NODE_TEXT_COLOR);
 				standardNodeTextColor = Tools.xmlToColor(stdcolor);
 			} catch (Exception ex) {
 				freemind.main.Resources.getInstance().logException(ex);
@@ -312,7 +312,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 			// initialize the selectedColor:
 			try {
 				String stdcolor = getController().getFrame().getProperty(
-						FreeMind.RESOURCES_SELECTED_NODE_COLOR);
+						FreeMindContants.RESOURCES_SELECTED_NODE_COLOR);
 				standardSelectColor = Tools.xmlToColor(stdcolor);
 			} catch (Exception ex) {
 				freemind.main.Resources.getInstance().logException(ex);
@@ -322,7 +322,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 			// initialize the selectedTextColor:
 			try {
 				String stdtextcolor = getController().getFrame().getProperty(
-						FreeMind.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR);
+						FreeMindContants.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR);
 				standardSelectRectangleColor = Tools.xmlToColor(stdtextcolor);
 			} catch (Exception ex) {
 				freemind.main.Resources.getInstance().logException(ex);
@@ -330,7 +330,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 			}
 			try {
 				String drawCircle = getController().getFrame().getProperty(
-						FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION);
+						FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION);
 				standardDrawRectangleForSelection = Tools
 						.xmlToBoolean(drawCircle);
 			} catch (Exception ex) {
@@ -340,7 +340,7 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 
 			try {
 				String printOnWhite = getController().getFrame().getProperty(
-						FreeMind.RESOURCE_PRINT_ON_WHITE_BACKGROUND);
+						FreeMindContants.RESOURCE_PRINT_ON_WHITE_BACKGROUND);
 				printOnWhiteBackground = Tools.xmlToBoolean(printOnWhite);
 			} catch (Exception ex) {
 				freemind.main.Resources.getInstance().logException(ex);
@@ -413,29 +413,29 @@ public class MapView extends JPanel implements Printable, Autoscroll {
 
 			public void propertyChanged(String propertyName, String newValue,
 					String oldValue) {
-				if (propertyName.equals(FreeMind.RESOURCES_NODE_TEXT_COLOR)) {
+				if (propertyName.equals(FreeMindContants.RESOURCES_NODE_TEXT_COLOR)) {
 					standardNodeTextColor = Tools.xmlToColor(newValue);
 					controller.getMapModule().getView().getRoot().updateAll();
 				} else if (propertyName
-						.equals(FreeMind.RESOURCES_BACKGROUND_COLOR)) {
+						.equals(FreeMindContants.RESOURCES_BACKGROUND_COLOR)) {
 					standardMapBackgroundColor = Tools.xmlToColor(newValue);
 					controller.getMapModule().getView()
 							.setBackground(standardMapBackgroundColor);
 				} else if (propertyName
-						.equals(FreeMind.RESOURCES_SELECTED_NODE_COLOR)) {
+						.equals(FreeMindContants.RESOURCES_SELECTED_NODE_COLOR)) {
 					standardSelectColor = Tools.xmlToColor(newValue);
 					controller.getMapModule().getView().repaintSelecteds();
 				} else if (propertyName
-						.equals(FreeMind.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR)) {
+						.equals(FreeMindContants.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR)) {
 					standardSelectRectangleColor = Tools.xmlToColor(newValue);
 					controller.getMapModule().getView().repaintSelecteds();
 				} else if (propertyName
-						.equals(FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)) {
+						.equals(FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)) {
 					standardDrawRectangleForSelection = Tools
 							.xmlToBoolean(newValue);
 					controller.getMapModule().getView().repaintSelecteds();
 				} else if (propertyName
-						.equals(FreeMind.RESOURCE_PRINT_ON_WHITE_BACKGROUND)) {
+						.equals(FreeMindContants.RESOURCE_PRINT_ON_WHITE_BACKGROUND)) {
 					printOnWhiteBackground = Tools.xmlToBoolean(newValue);
 				}
 			}

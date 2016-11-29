@@ -38,10 +38,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import freemind.common.TextTranslator;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.Resources;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.common.dialogs.EnterPasswordDialog;
 
 /**
@@ -145,7 +142,7 @@ public class SignedScriptHandler {
 			Signature instance = Signature.getInstance("SHA1withDSA");
 			String keyName = FREEMIND_SCRIPT_KEY_NAME;
 			String propertyKeyName = Resources.getInstance().getProperty(
-					FreeMind.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING);
+					FreeMindContants.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING);
 			if (content.mKeyName != null) {
 				keyName = content.mKeyName;
 			} else if (propertyKeyName != null && propertyKeyName.length() > 0) {

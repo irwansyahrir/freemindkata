@@ -23,7 +23,7 @@ import java.awt.KeyboardFocusManager;
 
 import javax.swing.JSplitPane;
 
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.modes.mindmapmode.hooks.MindMapNodeHookAdapter;
 
 /**
@@ -77,7 +77,7 @@ public class NodeNote extends MindMapNodeHookAdapter {
 				// splitPane.setLastDividerLocation(currentLoc);
 				registration.hideNotesPanel();
 				getMindMapController().getFrame().setProperty(
-						FreeMind.RESOURCES_USE_SPLIT_PANE, "false");
+						FreeMindContants.RESOURCES_USE_SPLIT_PANE, "false");
 			}
 
 		}
@@ -97,7 +97,7 @@ public class NodeNote extends MindMapNodeHookAdapter {
 			registration.showNotesPanel();
 			splitPane = registration.getSplitPane();
 			getMindMapController().getFrame().setProperty(
-					FreeMind.RESOURCES_USE_SPLIT_PANE, "true");
+					FreeMindContants.RESOURCES_USE_SPLIT_PANE, "true");
 		}
 		return splitPane;
 	}

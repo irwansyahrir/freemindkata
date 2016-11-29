@@ -23,10 +23,7 @@ package freemind.modes;
 import java.awt.Color;
 
 import freemind.controller.Controller;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.Tools;
-import freemind.main.XMLElement;
+import freemind.main.*;
 import freemind.preferences.FreemindPropertyListener;
 
 public abstract class EdgeAdapter extends LineAdapter implements MindMapEdge {
@@ -157,21 +154,21 @@ public abstract class EdgeAdapter extends LineAdapter implements MindMapEdge {
 	}
 
 	protected String getStandardColorPropertyString() {
-		return FreeMind.RESOURCES_EDGE_COLOR;
+		return FreeMindContants.RESOURCES_EDGE_COLOR;
 	}
 
 	protected String getStandardStylePropertyString() {
-		return FreeMind.RESOURCES_EDGE_STYLE;
+		return FreeMindContants.RESOURCES_EDGE_STYLE;
 	}
 
 	protected static class EdgeAdapterListener implements
 			FreemindPropertyListener {
 		public void propertyChanged(String propertyName, String newValue,
 				String oldValue) {
-			if (propertyName.equals(FreeMind.RESOURCES_EDGE_COLOR)) {
+			if (propertyName.equals(FreeMindContants.RESOURCES_EDGE_COLOR)) {
 				EdgeAdapter.standardColor = Tools.xmlToColor(newValue);
 			}
-			if (propertyName.equals(FreeMind.RESOURCES_EDGE_STYLE)) {
+			if (propertyName.equals(FreeMindContants.RESOURCES_EDGE_STYLE)) {
 				EdgeAdapter.standardStyle = newValue;
 			}
 		}

@@ -43,7 +43,7 @@ import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicButtonListener;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.Resources;
 import freemind.main.Tools;
 import freemind.modes.MindMapNode;
@@ -80,7 +80,7 @@ public class NodeFoldingComponent extends JButton {
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setUI(new RoundImageButtonUI());
 		mIsEnabled = Resources.getInstance().getBoolProperty(
-				FreeMind.RESOURCES_DISPLAY_FOLDING_BUTTONS);
+				FreeMindContants.RESOURCES_DISPLAY_FOLDING_BUTTONS);
 		if (mIsEnabled) {
 			addMouseListener(new MouseListener() {
 	

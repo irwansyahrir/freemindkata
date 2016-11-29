@@ -50,7 +50,7 @@ import freemind.controller.actions.generated.instance.PasteNodeAction;
 import freemind.controller.actions.generated.instance.UndoPasteNodeAction;
 import freemind.controller.actions.generated.instance.XmlAction;
 import freemind.extensions.HookRegistration;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.Resources;
 import freemind.main.Tools;
 import freemind.main.Tools.MindMapNodePair;
@@ -100,7 +100,7 @@ public class ClonePasteAction extends MindMapNodeHookAdapter {
 						getMindMapController(),
 						new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 								getMindMapController().getController(),
-								FreeMind.RESOURCES_COMPLETE_CLONING),
+								FreeMindContants.RESOURCES_COMPLETE_CLONING),
 						OptionalDontShowMeAgainDialog.BOTH_OK_AND_CANCEL_OPTIONS_ARE_STORED)
 						.show().getResult();
 				Properties properties = new Properties();
@@ -244,7 +244,7 @@ public class ClonePasteAction extends MindMapNodeHookAdapter {
 				sOriginalIcon = new ImageIcon(
 						controller.getResource("images/clone_original.png"));
 				sShowIcon = Resources.getInstance().getBoolProperty(
-						FreeMind.RESOURCES_DON_T_SHOW_CLONE_ICONS);
+						FreeMindContants.RESOURCES_DON_T_SHOW_CLONE_ICONS);
 			}
 			controller.getActionFactory().registerFilter(this);
 			controller.registerNodeSelectionListener(this, false);

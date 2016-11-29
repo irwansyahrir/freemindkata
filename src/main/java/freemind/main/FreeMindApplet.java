@@ -48,7 +48,7 @@ import freemind.view.mindmapview.MapView;
 
 public class FreeMindApplet extends JApplet implements FreeMindMain {
 
-	public static final VersionInformation version = FreeMind.VERSION;
+	public static final VersionInformation version = FreeMindContants.VERSION;
 	// public static final String defaultPropsURL;
 	public URL defaultPropsURL;
 	public static Properties defaultProps;
@@ -359,7 +359,7 @@ public class FreeMindApplet extends JApplet implements FreeMindMain {
 			System.err.println("Error while setting Look&Feel" + lookAndFeel);
 		}
 		mFreeMindCommon.loadUIProperties(userProps);
-		userProps.put(FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
+		userProps.put(FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
 				Tools.BooleanToXml(true));
 	}
 

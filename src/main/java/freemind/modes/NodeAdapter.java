@@ -53,12 +53,7 @@ import freemind.controller.filter.FilterInfo;
 import freemind.extensions.DontSaveMarker;
 import freemind.extensions.NodeHook;
 import freemind.extensions.PermanentNodeHook;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.FreeMindMain;
-import freemind.main.HtmlTools;
-import freemind.main.Tools;
-import freemind.main.XMLElement;
+import freemind.main.*;
 import freemind.modes.attributes.Attribute;
 import freemind.modes.attributes.NodeAttributeTableModel;
 import freemind.preferences.FreemindPropertyListener;
@@ -376,10 +371,10 @@ public abstract class NodeAdapter implements MindMapNode {
 		if (style == null) {
 			if (this.isRoot()) {
 				returnedString = getFrame().getProperty(
-						FreeMind.RESOURCES_ROOT_NODE_STYLE);
+						FreeMindContants.RESOURCES_ROOT_NODE_STYLE);
 			} else {
 				String stdstyle = getFrame().getProperty(
-						FreeMind.RESOURCES_NODE_STYLE);
+						FreeMindContants.RESOURCES_NODE_STYLE);
 				if (stdstyle.equals(MindMapNode.STYLE_AS_PARENT)) {
 					returnedString = getParentNode().getStyle();
 				} else {
@@ -388,7 +383,7 @@ public abstract class NodeAdapter implements MindMapNode {
 			}
 		} else if (this.isRoot() && style.equals(MindMapNode.STYLE_AS_PARENT)) {
 			returnedString = getFrame().getProperty(
-					FreeMind.RESOURCES_ROOT_NODE_STYLE);
+					FreeMindContants.RESOURCES_ROOT_NODE_STYLE);
 		} else if (style.equals(MindMapNode.STYLE_AS_PARENT)) {
 			returnedString = getParentNode().getStyle();
 		}

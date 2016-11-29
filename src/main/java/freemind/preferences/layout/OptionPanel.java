@@ -72,6 +72,7 @@ import freemind.controller.actions.generated.instance.OptionPanelWindowConfigura
 import freemind.controller.actions.generated.instance.WindowConfigurationStorage;
 import freemind.main.FreeMind;
 import freemind.main.FreeMindCommon;
+import freemind.main.FreeMindContants;
 import freemind.main.Tools;
 import freemind.modes.IconInformation;
 import freemind.modes.MindIcon;
@@ -510,8 +511,8 @@ public class OptionPanel implements TextTranslator {
 				200, 1)); // 25
 		controls.add(new BooleanProperty(FreeMindCommon.LOAD_LAST_MAP
 				+ TOOLTIP_EXT, FreeMindCommon.LOAD_LAST_MAP)); // true
-		controls.add(new BooleanProperty(FreeMind.RESOURCES_DON_T_OPEN_PORT
-				+ TOOLTIP_EXT, FreeMind.RESOURCES_DON_T_OPEN_PORT));
+		controls.add(new BooleanProperty(FreeMindContants.RESOURCES_DON_T_OPEN_PORT
+				+ TOOLTIP_EXT, FreeMindContants.RESOURCES_DON_T_OPEN_PORT));
 		controls.add(new BooleanProperty(
 				FreeMindCommon.LOAD_LAST_MAPS_AND_LAYOUT + TOOLTIP_EXT,
 				FreeMindCommon.LOAD_LAST_MAPS_AND_LAYOUT)); // true
@@ -562,7 +563,7 @@ public class OptionPanel implements TextTranslator {
 
 		controls.add(new BooleanProperty(
 				"resources_save_folding_state.tooltip",
-				FreeMind.RESOURCES_SAVE_FOLDING_STATE)); // true
+				FreeMindContants.RESOURCES_SAVE_FOLDING_STATE)); // true
 		controls.add(new BooleanProperty(
 				"save_only_intrisically_needed_ids.tooltip",
 				FreeMindCommon.SAVE_ONLY_INTRISICALLY_NEEDED_IDS)); // false
@@ -573,42 +574,42 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new NewTabProperty("Defaults"));
 		controls.add(new SeparatorProperty("default_styles"));
 		controls.add(new ComboProperty("standardnodestyle.tooltip",
-				FreeMind.RESOURCES_NODE_STYLE, MindMapNode.NODE_STYLES, this)); // as_parent
+				FreeMindContants.RESOURCES_NODE_STYLE, MindMapNode.NODE_STYLES, this)); // as_parent
 
 		controls.add(new ComboProperty("standardrootnodestyle.tooltip",
-				FreeMind.RESOURCES_ROOT_NODE_STYLE, new String[] {
+				FreeMindContants.RESOURCES_ROOT_NODE_STYLE, new String[] {
 						MindMapNode.STYLE_FORK, MindMapNode.STYLE_BUBBLE,
 						MindMapNode.STYLE_COMBINED }, this)); // fork
 
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("default_colors"));
 		controls.add(new ColorProperty("standardnodetextcolor.tooltip",
-				FreeMind.RESOURCES_NODE_TEXT_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_NODE_TEXT_COLOR),
+				FreeMindContants.RESOURCES_NODE_TEXT_COLOR,
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_NODE_TEXT_COLOR),
 				this)); // #000000
 
 		controls.add(new ColorProperty("standardedgecolor.tooltip",
-				FreeMind.RESOURCES_EDGE_COLOR, fmMain
-						.getDefaultProperty(FreeMind.RESOURCES_EDGE_COLOR),
+				FreeMindContants.RESOURCES_EDGE_COLOR, fmMain
+						.getDefaultProperty(FreeMindContants.RESOURCES_EDGE_COLOR),
 				this)); // #808080
 
 		controls.add(new ColorProperty("standardlinkcolor.tooltip",
-				FreeMind.RESOURCES_LINK_COLOR, fmMain
-						.getDefaultProperty(FreeMind.RESOURCES_LINK_COLOR),
+				FreeMindContants.RESOURCES_LINK_COLOR, fmMain
+						.getDefaultProperty(FreeMindContants.RESOURCES_LINK_COLOR),
 				this)); // #b0b0b0
 
 		controls.add(new ColorProperty("standardbackgroundcolor.tooltip",
-				FreeMind.RESOURCES_BACKGROUND_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_BACKGROUND_COLOR),
+				FreeMindContants.RESOURCES_BACKGROUND_COLOR,
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_BACKGROUND_COLOR),
 				this)); // #ffffff
 
 		controls.add(new BooleanProperty(
-				FreeMind.RESOURCE_PRINT_ON_WHITE_BACKGROUND + TOOLTIP_EXT,
-				FreeMind.RESOURCE_PRINT_ON_WHITE_BACKGROUND)); // true
+				FreeMindContants.RESOURCE_PRINT_ON_WHITE_BACKGROUND + TOOLTIP_EXT,
+				FreeMindContants.RESOURCE_PRINT_ON_WHITE_BACKGROUND)); // true
 
 		controls.add(new ColorProperty("standardcloudcolor.tooltip",
-				FreeMind.RESOURCES_CLOUD_COLOR, fmMain
-						.getDefaultProperty(FreeMind.RESOURCES_CLOUD_COLOR),
+				FreeMindContants.RESOURCES_CLOUD_COLOR, fmMain
+						.getDefaultProperty(FreeMindContants.RESOURCES_CLOUD_COLOR),
 				this)); // #f0f0f0
 
 		controls.add(new NextLineProperty());
@@ -633,7 +634,7 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("other_defaults"));
 		controls.add(new ComboProperty("standardedgestyle.tooltip",
-				FreeMind.RESOURCES_EDGE_STYLE, new String[] { "bezier",
+				FreeMindContants.RESOURCES_EDGE_STYLE, new String[] { "bezier",
 						"linear" }, this)); // bezier
 
 		// controls.add(new ComboProperty(
@@ -675,22 +676,22 @@ public class OptionPanel implements TextTranslator {
 			translatedLafNames.add(info.getName());
 		}
 		controls.add(new ComboProperty("lookandfeel.tooltip",
-				FreeMind.RESOURCE_LOOKANDFEEL, lafNames, translatedLafNames)); // default
+				FreeMindContants.RESOURCE_LOOKANDFEEL, lafNames, translatedLafNames)); // default
 
 		controls.add(new BooleanProperty("use_tabbed_pane.tooltip",
-				FreeMind.RESOURCES_USE_TABBED_PANE)); // true
-		controls.add(new ComboProperty(FreeMind.J_SPLIT_PANE_SPLIT_TYPE
-				+ TOOLTIP_EXT, FreeMind.J_SPLIT_PANE_SPLIT_TYPE,
-				new String[] { FreeMind.VERTICAL_SPLIT_BELOW,
-						FreeMind.HORIZONTAL_SPLIT_RIGHT }, this));
+				FreeMindContants.RESOURCES_USE_TABBED_PANE)); // true
+		controls.add(new ComboProperty(FreeMindContants.J_SPLIT_PANE_SPLIT_TYPE
+				+ TOOLTIP_EXT, FreeMindContants.J_SPLIT_PANE_SPLIT_TYPE,
+				new String[] { FreeMindContants.VERTICAL_SPLIT_BELOW,
+						FreeMindContants.HORIZONTAL_SPLIT_RIGHT }, this));
 
 		controls.add(new NumberProperty(
 				StructuredMenuHolder.AMOUNT_OF_VISIBLE_MENU_ITEMS + TOOLTIP_EXT,
 				StructuredMenuHolder.AMOUNT_OF_VISIBLE_MENU_ITEMS, 10,
 				Integer.MAX_VALUE, 1));
 
-		controls.add(new BooleanProperty(FreeMind.RESOURCES_DISPLAY_FOLDING_BUTTONS+TOOLTIP_EXT,
-				FreeMind.RESOURCES_DISPLAY_FOLDING_BUTTONS)); // true
+		controls.add(new BooleanProperty(FreeMindContants.RESOURCES_DISPLAY_FOLDING_BUTTONS+TOOLTIP_EXT,
+				FreeMindContants.RESOURCES_DISPLAY_FOLDING_BUTTONS)); // true
 		// controls.add(new BooleanProperty(
 		//
 		// "use_split_pane.tooltip", FreeMind.RESOURCES_USE_SPLIT_PANE)); //
@@ -700,18 +701,18 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("selection_colors"));
 		controls.add(new BooleanProperty(
-				FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION + TOOLTIP_EXT,
-				FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)); // false
+				FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION + TOOLTIP_EXT,
+				FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)); // false
 		controls.add(new ColorProperty(
 				"standardselectednoderectanglecolor.tooltip",
-				FreeMind.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR),
+				FreeMindContants.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR,
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_SELECTED_NODE_RECTANGLE_COLOR),
 				this)); // #000000
 
 		controls.add(new ColorProperty(
 				"standardselectednodecolor.tooltip",
-				FreeMind.RESOURCES_SELECTED_NODE_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_SELECTED_NODE_COLOR),
+				FreeMindContants.RESOURCES_SELECTED_NODE_COLOR,
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_SELECTED_NODE_COLOR),
 				this)); // #D2D2D2
 
 		/* ***************************************************************** */
@@ -765,11 +766,11 @@ public class OptionPanel implements TextTranslator {
 
 		controls.add(new SeparatorProperty("note_properties"));
 		controls.add(new BooleanProperty(null,
-				FreeMind.RESOURCES_DON_T_SHOW_NOTE_ICONS));
+				FreeMindContants.RESOURCES_DON_T_SHOW_NOTE_ICONS));
 		controls.add(new BooleanProperty(null,
-				FreeMind.RESOURCES_DON_T_SHOW_NOTE_TOOLTIPS));
-		controls.add(new NumberProperty(FreeMind.TOOLTIP_DISPLAY_TIME
-				+ ".tooltip", FreeMind.TOOLTIP_DISPLAY_TIME, 0,
+				FreeMindContants.RESOURCES_DON_T_SHOW_NOTE_TOOLTIPS));
+		controls.add(new NumberProperty(FreeMindContants.TOOLTIP_DISPLAY_TIME
+				+ ".tooltip", FreeMindContants.TOOLTIP_DISPLAY_TIME, 0,
 				Integer.MAX_VALUE, 1)); // 4000
 		controls.add(new SeparatorProperty("icon_properties"));
 		controls.add(new StringProperty("icon_order_description",
@@ -831,17 +832,17 @@ public class OptionPanel implements TextTranslator {
 		// W
 
 		controls.add(new KeyProperty(frame, null,
-				FreeMind.KEYSTROKE_PREVIOUS_MAP)); // control
+				FreeMindContants.KEYSTROKE_PREVIOUS_MAP)); // control
 		// LEFT
 
-		controls.add(new KeyProperty(frame, null, FreeMind.KEYSTROKE_NEXT_MAP)); // control
+		controls.add(new KeyProperty(frame, null, FreeMindContants.KEYSTROKE_NEXT_MAP)); // control
 		// RIGHT
 
 		controls.add(new KeyProperty(frame, null,
-				FreeMind.KEYSTROKE_MOVE_MAP_LEFT));
+				FreeMindContants.KEYSTROKE_MOVE_MAP_LEFT));
 
 		controls.add(new KeyProperty(frame, null,
-				FreeMind.KEYSTROKE_MOVE_MAP_RIGHT));
+				FreeMindContants.KEYSTROKE_MOVE_MAP_RIGHT));
 
 		controls.add(new KeyProperty(frame, null, "keystroke_mode_MindMap")); // alt
 		// 1
@@ -1164,8 +1165,8 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new SeparatorProperty("behaviour"));
 		controls.add(new BooleanProperty("enable_node_movement.tooltip",
 				"enable_node_movement"));
-		controls.add(new BooleanProperty(FreeMind.RESOURCES_SEARCH_IN_NOTES_TOO
-				+ TOOLTIP_EXT, FreeMind.RESOURCES_SEARCH_IN_NOTES_TOO));
+		controls.add(new BooleanProperty(FreeMindContants.RESOURCES_SEARCH_IN_NOTES_TOO
+				+ TOOLTIP_EXT, FreeMindContants.RESOURCES_SEARCH_IN_NOTES_TOO));
 
 		controls.add(new ComboProperty("placenewbranches.tooltip",
 				"placenewbranches", new String[] { "first", "last" }, this)); // last
@@ -1195,35 +1196,35 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new SeparatorProperty("resources_notifications"));
 		controls.add(new RemindValueProperty(
 				"remind_type_of_new_nodes.tooltip",
-				FreeMind.RESOURCES_REMIND_USE_RICH_TEXT_IN_NEW_LONG_NODES,
+				FreeMindContants.RESOURCES_REMIND_USE_RICH_TEXT_IN_NEW_LONG_NODES,
 				modeController));
 		controls.add(new DontShowNotificationProperty(
 				"resources_convert_to_current_version.tooltip",
-				FreeMind.RESOURCES_CONVERT_TO_CURRENT_VERSION));
+				FreeMindContants.RESOURCES_CONVERT_TO_CURRENT_VERSION));
 		controls.add(new RemindValueProperty(
 				"reload_files_without_question.tooltip",
-				FreeMind.RESOURCES_RELOAD_FILES_WITHOUT_QUESTION,
+				FreeMindContants.RESOURCES_RELOAD_FILES_WITHOUT_QUESTION,
 				modeController));
 		controls.add(new DontShowNotificationProperty(
 				"delete_nodes_without_question.tooltip",
-				FreeMind.RESOURCES_DELETE_NODES_WITHOUT_QUESTION));
+				FreeMindContants.RESOURCES_DELETE_NODES_WITHOUT_QUESTION));
 		controls.add(new DontShowNotificationProperty(
 				"cut_nodes_without_question.tooltip",
-				FreeMind.RESOURCES_CUT_NODES_WITHOUT_QUESTION));
+				FreeMindContants.RESOURCES_CUT_NODES_WITHOUT_QUESTION));
 		controls.add(new DontShowNotificationProperty(
 				"remove_notes_without_question.tooltip",
-				FreeMind.RESOURCES_REMOVE_NOTES_WITHOUT_QUESTION));
+				FreeMindContants.RESOURCES_REMOVE_NOTES_WITHOUT_QUESTION));
 		controls.add(new RemindValueProperty(
-				FreeMind.RESOURCES_COMPLETE_CLONING + ".tooltip",
-				FreeMind.RESOURCES_COMPLETE_CLONING, modeController));
+				FreeMindContants.RESOURCES_COMPLETE_CLONING + ".tooltip",
+				FreeMindContants.RESOURCES_COMPLETE_CLONING, modeController));
 		controls.add(new DontShowNotificationProperty(
 				"execute_scripts_without_asking.tooltip",
-				FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING));
+				FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING));
 
 		controls.add(new NextLineProperty());
-		controls.add(new SeparatorProperty(FreeMind.RESOURCES_SELECTION_METHOD));
+		controls.add(new SeparatorProperty(FreeMindContants.RESOURCES_SELECTION_METHOD));
 		controls.add(new ComboProperty("selection_method.tooltip",
-				FreeMind.RESOURCES_SELECTION_METHOD, new String[] {
+				FreeMindContants.RESOURCES_SELECTION_METHOD, new String[] {
 						"selection_method_direct", "selection_method_delayed",
 						"selection_method_by_click" }, this)); // selection_method_direct
 
@@ -1233,7 +1234,7 @@ public class OptionPanel implements TextTranslator {
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("mouse_wheel"));
 		controls.add(new NumberProperty("wheel_velocity.tooltip",
-				FreeMind.RESOURCES_WHEEL_VELOCITY, 1, 250, 1));
+				FreeMindContants.RESOURCES_WHEEL_VELOCITY, 1, 250, 1));
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("undo"));
 		controls.add(new NumberProperty("undo_levels.tooltip", "undo_levels",

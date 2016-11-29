@@ -37,7 +37,7 @@ import freemind.controller.actions.generated.instance.PasteNodeAction;
 import freemind.controller.actions.generated.instance.UndoPasteNodeAction;
 import freemind.controller.actions.generated.instance.XmlAction;
 import freemind.extensions.PermanentNodeHook;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.modes.MindMapNode;
 import freemind.modes.mindmapmode.MindMapController;
 import freemind.modes.mindmapmode.actions.PasteAction.NodeCoordinate;
@@ -76,7 +76,7 @@ public class DeleteChildAction extends AbstractAction implements ActorXml {
 				"really_remove_node", "confirmation", mMindMapController,
 				new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 						mMindMapController.getController(),
-						FreeMind.RESOURCES_DELETE_NODES_WITHOUT_QUESTION),
+						FreeMindContants.RESOURCES_DELETE_NODES_WITHOUT_QUESTION),
 				OptionalDontShowMeAgainDialog.ONLY_OK_SELECTION_IS_STORED)
 				.show().getResult();
 		if (showResult != JOptionPane.OK_OPTION) {

@@ -36,7 +36,7 @@ import javax.swing.JOptionPane;
 import freemind.common.OptionalDontShowMeAgainDialog;
 import freemind.controller.actions.generated.instance.EditNodeAction;
 import freemind.controller.actions.generated.instance.XmlAction;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.HtmlTools;
 import freemind.main.Tools;
 import freemind.modes.MindMapNode;
@@ -152,7 +152,7 @@ public class EditAction extends AbstractAction implements ActorXml {
 					mMindMapController,
 					new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 							mMindMapController.getController(),
-							FreeMind.RESOURCES_REMIND_USE_RICH_TEXT_IN_NEW_LONG_NODES),
+							FreeMindContants.RESOURCES_REMIND_USE_RICH_TEXT_IN_NEW_LONG_NODES),
 					OptionalDontShowMeAgainDialog.BOTH_OK_AND_CANCEL_OPTIONS_ARE_STORED)
 					.show().getResult();
 			useRichTextInNewLongNodes = (showResult == JOptionPane.OK_OPTION) ? "true"

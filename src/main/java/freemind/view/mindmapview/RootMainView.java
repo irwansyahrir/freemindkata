@@ -27,7 +27,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.Resources;
 import freemind.main.Tools;
 
@@ -121,7 +121,7 @@ class RootMainView extends MainView {
 	 */
 	String getStyle() {
 		return Resources.getInstance().getProperty(
-				FreeMind.RESOURCES_ROOT_NODE_STYLE);
+				FreeMindContants.RESOURCES_ROOT_NODE_STYLE);
 	}
 
 	/**

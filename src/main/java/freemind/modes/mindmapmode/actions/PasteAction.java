@@ -53,12 +53,7 @@ import freemind.controller.actions.generated.instance.TransferableFile;
 import freemind.controller.actions.generated.instance.TransferableImage;
 import freemind.controller.actions.generated.instance.UndoPasteNodeAction;
 import freemind.controller.actions.generated.instance.XmlAction;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.HtmlTools;
-import freemind.main.Resources;
-import freemind.main.Tools;
-import freemind.main.XMLParseException;
+import freemind.main.*;
 import freemind.modes.ControllerAdapter;
 import freemind.modes.MindMapNode;
 import freemind.modes.ModeController;
@@ -279,7 +274,7 @@ public class PasteAction extends AbstractAction implements ActorXml {
 				}
 				// and now? paste it:
 				String mapContent = MindMapMapModel.MAP_INITIAL_START
-						+ FreeMind.XML_VERSION + "\"><node TEXT=\"DUMMY\">";
+						+ FreeMindContants.XML_VERSION + "\"><node TEXT=\"DUMMY\">";
 				for (int j = 0; j < textLines.length; j++) {
 					mapContent += textLines[j];
 				}

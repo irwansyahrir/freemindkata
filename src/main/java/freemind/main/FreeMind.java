@@ -96,121 +96,9 @@ import freemind.view.mindmapview.MapView;
 
 public class FreeMind extends JFrame implements FreeMindMain {
 
-	public static final String J_SPLIT_PANE_SPLIT_TYPE = "JSplitPane.SPLIT_TYPE";
+    private Logger logger = null;
 
-	public static final String VERTICAL_SPLIT_BELOW = "vertical_split_below";
-	
-	public static final String HORIZONTAL_SPLIT_RIGHT = "horizontal_split_right";
-	
-	public static final String LOG_FILE_NAME = "log";
-
-	private static final String PORT_FILE = "portFile";
-
-	private static final String FREE_MIND_PROGRESS_LOAD_MAPS = "FreeMind.progress.loadMaps";
-
-	private static final String FREE_MIND_PROGRESS_LOAD_MAPS_NAME = "FreeMind.progress.loadNamedMaps";
-
-	private static final String SPLIT_PANE_POSITION = "split_pane_position";
-
-	private static final String SPLIT_PANE_LAST_POSITION = "split_pane_last_position";
-
-	public static final String RESOURCE_LOOKANDFEEL = "lookandfeel";
-
-	public static final String RESOURCES_SELECTION_METHOD = "selection_method";
-
-	public static final String RESOURCES_NODE_STYLE = "standardnodestyle";
-
-	public static final String RESOURCES_ROOT_NODE_STYLE = "standardrootnodestyle";
-
-	public static final String RESOURCES_NODE_TEXT_COLOR = "standardnodetextcolor";
-
-	public static final String RESOURCES_SELECTED_NODE_COLOR = "standardselectednodecolor";
-
-	public static final String RESOURCES_SELECTED_NODE_RECTANGLE_COLOR = "standardselectednoderectanglecolor";
-
-	public static final String RESOURCE_DRAW_RECTANGLE_FOR_SELECTION = "standarddrawrectangleforselection";
-
-	public static final String RESOURCES_EDGE_COLOR = "standardedgecolor";
-
-	public static final String RESOURCES_EDGE_STYLE = "standardedgestyle";
-
-	public static final String RESOURCES_CLOUD_COLOR = "standardcloudcolor";
-
-	public static final String RESOURCES_LINK_COLOR = "standardlinkcolor";
-
-	public static final String RESOURCES_BACKGROUND_COLOR = "standardbackgroundcolor";
-
-	public static final String RESOURCE_PRINT_ON_WHITE_BACKGROUND = "printonwhitebackground";
-
-	public static final String RESOURCES_WHEEL_VELOCITY = "wheel_velocity";
-
-	public static final String RESOURCES_USE_TABBED_PANE = "use_tabbed_pane";
-
-	public static final String RESOURCES_USE_SPLIT_PANE = "use_split_pane";
-
-	public static final String RESOURCES_DELETE_NODES_WITHOUT_QUESTION = "delete_nodes_without_question";
-
-	public static final String RESOURCES_RELOAD_FILES_WITHOUT_QUESTION = "reload_files_without_question";
-
-	private Logger logger = null;
-
-	protected static final VersionInformation VERSION = new VersionInformation("1.0.1");
-
-	public static final String XML_VERSION = "1.0.1";
-
-	public static final String RESOURCES_REMIND_USE_RICH_TEXT_IN_NEW_LONG_NODES = "remind_use_rich_text_in_new_long_nodes";
-
-	public static final String RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING = "resources_execute_scripts_without_asking";
-
-	public static final String RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION = "resources_execute_scripts_without_file_restriction";
-
-	public static final String RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION = "resources_execute_scripts_without_network_restriction";
-
-	public static final String RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION = "resources_execute_scripts_without_exec_restriction";
-
-	public static final String RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING = "resources_script_user_key_name_for_signing";
-
-	public static final String RESOURCES_CONVERT_TO_CURRENT_VERSION = "resources_convert_to_current_version";
-
-	public static final String RESOURCES_CUT_NODES_WITHOUT_QUESTION = "resources_cut_nodes_without_question";
-
-	public static final String RESOURCES_DON_T_SHOW_NOTE_ICONS = "resources_don_t_show_note_icons";
-
-	public static final String RESOURCES_REMOVE_NOTES_WITHOUT_QUESTION = "resources_remove_notes_without_question";
-
-	public static final String RESOURCES_SAVE_FOLDING_STATE = "resources_save_folding_state";
-
-	public static final String RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED = "resources_signed_script_are_trusted";
-
-	public static final String RESOURCES_USE_DEFAULT_FONT_FOR_NOTES_TOO = "resources_use_default_font_for_notes_too";
-
-	public static final String RESOURCES_USE_MARGIN_TOP_ZERO_FOR_NOTES = "resources_use_margin_top_zero_for_notes";
-
-	public static final String RESOURCES_DON_T_SHOW_CLONE_ICONS = "resources_don_t_show_clone_icons";
-
-	public static final String RESOURCES_DON_T_OPEN_PORT = "resources_don_t_open_port";
-
-	public static final String KEYSTROKE_MOVE_MAP_LEFT = "keystroke_MoveMapLeft";
-
-	public static final String KEYSTROKE_MOVE_MAP_RIGHT = "keystroke_MoveMapRight";
-
-	public static final String KEYSTROKE_PREVIOUS_MAP = "keystroke_previousMap";
-
-	public static final String KEYSTROKE_NEXT_MAP = "keystroke_nextMap";
-
-	public static final String RESOURCES_SEARCH_IN_NOTES_TOO = "resources_search_in_notes_too";
-
-	public static final String RESOURCES_DON_T_SHOW_NOTE_TOOLTIPS = "resources_don_t_show_note_tooltips";
-
-	public static final String RESOURCES_SEARCH_FOR_NODE_TEXT_WITHOUT_QUESTION = "resources_search_for_node_text_without_question";
-	
-	public static final String RESOURCES_COMPLETE_CLONING = "complete_cloning";
-
-	public static final String RESOURCES_CLONE_TYPE_COMPLETE_CLONE = "COMPLETE_CLONE";
-
-	public static final String TOOLTIP_DISPLAY_TIME = "tooltip_display_time";
-
-	public static final String PROXY_PORT = "proxy.port";
+    public static final String PROXY_PORT = "proxy.port";
 
 	public static final String PROXY_HOST = "proxy.host";
 
@@ -222,10 +110,8 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
 	public static final String PROXY_USE_SETTINGS = "proxy.use_settings";
 
-	public static final String RESOURCES_DISPLAY_FOLDING_BUTTONS = "resources_display_folding_buttons";
 
-
-	// public static final String defaultPropsURL = "freemind.properties";
+    // public static final String defaultPropsURL = "freemind.properties";
 	// public static Properties defaultProps;
 	public static Properties props;
 
@@ -282,9 +168,9 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			logger = getLogger(FreeMind.class.getName());
 			StringBuffer info = new StringBuffer();
 			info.append("freemind_version = ");
-			info.append(VERSION);
+			info.append(FreeMindContants.VERSION);
 			info.append("; freemind_xml_version = ");
-			info.append(XML_VERSION);
+			info.append(FreeMindContants.XML_VERSION);
 			try {
 				String propsLoc = "version.properties";
 				URL versionUrl = this.getClass().getClassLoader()
@@ -379,7 +265,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	private void updateLookAndFeel() {
 		// set Look&Feel
 		try {
-			String lookAndFeel = props.getProperty(RESOURCE_LOOKANDFEEL);
+			String lookAndFeel = props.getProperty(FreeMindContants.RESOURCE_LOOKANDFEEL);
 			if (lookAndFeel.equals("windows")) {
 				UIManager
 						.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -422,7 +308,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	}
 
 	public VersionInformation getFreemindVersion() {
-		return VERSION;
+		return FreeMindContants.VERSION;
 	}
 
 	// maintain this methods to keep the last state/size of the window (PN)
@@ -490,7 +376,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			final OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
 					out, "8859_1");
 			outputStreamWriter.write("#FreeMind ");
-			outputStreamWriter.write(VERSION.toString());
+			outputStreamWriter.write(FreeMindContants.VERSION.toString());
 			outputStreamWriter.write('\n');
 			outputStreamWriter.flush();
 			//to save as few props as possible.
@@ -832,7 +718,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
 			try {
 				mFileHandler = new FileHandler(getFreemindDirectory()
-						+ File.separator + LOG_FILE_NAME, 1400000, 5, false);
+						+ File.separator + FreeMindContants.LOG_FILE_NAME, 1400000, 5, false);
 				mFileHandler.setFormatter(new StdFormatter());
 				mFileHandler.setLevel(Level.INFO);
 				parentLogger.addHandler(mFileHandler);
@@ -927,7 +813,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		feedBack.increase("FreeMind.progress.startCreateController", null);
 		final ModeController ctrl = frame.createModeController(args);
 
-		feedBack.increase(FREE_MIND_PROGRESS_LOAD_MAPS, null);
+		feedBack.increase(FreeMindContants.FREE_MIND_PROGRESS_LOAD_MAPS, null);
 
 		frame.loadMaps(args, ctrl, feedBack);
 
@@ -1066,10 +952,10 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	private String getPortFile() {
 		if (mEditServer == null
 				&& Resources.getInstance().getBoolProperty(
-						RESOURCES_DON_T_OPEN_PORT)) {
+						FreeMindContants.RESOURCES_DON_T_OPEN_PORT)) {
 			return null;
 		}
-		return getFreemindDirectory() + File.separator + getProperty(PORT_FILE);
+		return getFreemindDirectory() + File.separator + getProperty(FreeMindContants.PORT_FILE);
 	}
 
 	private void fireStartupDone() {
@@ -1105,7 +991,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		mContentComponent = mScrollPane;
 
 		boolean shouldUseTabbedPane = Resources.getInstance().getBoolProperty(
-				RESOURCES_USE_TABBED_PANE);
+				FreeMindContants.RESOURCES_USE_TABBED_PANE);
 
 		if (shouldUseTabbedPane) {
 			// tabbed panes eat control up. This is corrected here.
@@ -1223,7 +1109,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 				MindmapLastStateStorage store = (MindmapLastStateStorage) it
 						.next();
 				String restorable = store.getRestorableName();
-				pFeedBack.increase(FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
+				pFeedBack.increase(FreeMindContants.FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
 						new Object[] { restorable.replaceAll(".*/", "") });
 				try {
 					if (controller.getLastOpenedList().open(restorable)) {
@@ -1244,7 +1130,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		}
 		for (int i = 0; i < args.length; i++) {
 			String fileArgument = args[i];
-			pFeedBack.increase(FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
+			pFeedBack.increase(FreeMindContants.FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
 					new Object[] { fileArgument.replaceAll(".*/", "") });
 			if (fileArgument.toLowerCase().endsWith(
 					freemind.main.FreeMindCommon.FREEMIND_FILE_EXTENSION)) {
@@ -1273,7 +1159,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			if (Tools
 					.isPreferenceTrue(getProperty(FreeMindCommon.LOAD_LAST_MAP))
 					&& restoreable != null && restoreable.length() > 0) {
-				pFeedBack.increase(FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
+				pFeedBack.increase(FreeMindContants.FREE_MIND_PROGRESS_LOAD_MAPS_NAME,
 						new Object[] { restoreable.replaceAll(".*/", "") });
 				try {
 					controller.getLastOpenedList().open(restoreable);
@@ -1296,7 +1182,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			 * &aid=1752516&group_id=7118
 			 */
 			pModeController.newMap();
-			pFeedBack.increase(FREE_MIND_PROGRESS_LOAD_MAPS, null);
+			pFeedBack.increase(FreeMindContants.FREE_MIND_PROGRESS_LOAD_MAPS, null);
 		}
 	}
 
@@ -1383,10 +1269,10 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		}
 		removeContentComponent();
 		int splitType = JSplitPane.VERTICAL_SPLIT;
-		String splitProperty = getProperty(J_SPLIT_PANE_SPLIT_TYPE);
-		if(Tools.safeEquals(splitProperty, HORIZONTAL_SPLIT_RIGHT)) {
+		String splitProperty = getProperty(FreeMindContants.J_SPLIT_PANE_SPLIT_TYPE);
+		if(Tools.safeEquals(splitProperty, FreeMindContants.HORIZONTAL_SPLIT_RIGHT)) {
 			splitType = JSplitPane.HORIZONTAL_SPLIT;
-		} else if(Tools.safeEquals(splitProperty, VERTICAL_SPLIT_BELOW)) {
+		} else if(Tools.safeEquals(splitProperty, FreeMindContants.VERTICAL_SPLIT_BELOW)) {
 			// default
 		} else {
 			logger.warning("Split type not known: " + splitProperty);
@@ -1404,8 +1290,8 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		mContentComponent = mSplitPane;
 		setContentComponent();
 		// set divider position:
-		int splitPanePosition = getIntProperty(SPLIT_PANE_POSITION, -1);
-		int lastSplitPanePosition = getIntProperty(SPLIT_PANE_LAST_POSITION, -1);
+		int splitPanePosition = getIntProperty(FreeMindContants.SPLIT_PANE_POSITION, -1);
+		int lastSplitPanePosition = getIntProperty(FreeMindContants.SPLIT_PANE_LAST_POSITION, -1);
 		if (splitPanePosition != -1 && lastSplitPanePosition != -1) {
 			mSplitPane.setDividerLocation(splitPanePosition);
 			mSplitPane.setLastDividerLocation(lastSplitPanePosition);
@@ -1415,9 +1301,9 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
 	public void removeSplitPane() {
 		if (mSplitPane != null) {
-			setProperty(SPLIT_PANE_POSITION,
+			setProperty(FreeMindContants.SPLIT_PANE_POSITION,
 					"" + mSplitPane.getDividerLocation());
-			setProperty(SPLIT_PANE_LAST_POSITION,
+			setProperty(FreeMindContants.SPLIT_PANE_LAST_POSITION,
 					"" + mSplitPane.getLastDividerLocation());
 			removeContentComponent();
 			mContentComponent = mScrollPane;

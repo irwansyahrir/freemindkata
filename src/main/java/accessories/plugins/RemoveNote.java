@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 import freemind.common.OptionalDontShowMeAgainDialog;
 import freemind.controller.MenuItemEnabledListener;
 import freemind.extensions.HookRegistration;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.modes.MindMap;
 import freemind.modes.MindMapNode;
 import freemind.modes.ModeController;
@@ -56,7 +56,7 @@ public class RemoveNote extends MindMapNodeHookAdapter {
 				"really_remove_notes", "confirmation", getMindMapController(),
 				new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 						getMindMapController().getController(),
-						FreeMind.RESOURCES_REMOVE_NOTES_WITHOUT_QUESTION),
+						FreeMindContants.RESOURCES_REMOVE_NOTES_WITHOUT_QUESTION),
 				OptionalDontShowMeAgainDialog.ONLY_OK_SELECTION_IS_STORED)
 				.show().getResult();
 		if (showResult != JOptionPane.OK_OPTION) {

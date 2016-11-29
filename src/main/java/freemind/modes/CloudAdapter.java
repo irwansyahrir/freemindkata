@@ -25,10 +25,7 @@ import java.awt.Color;
 import java.awt.Stroke;
 
 import freemind.controller.Controller;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.Tools;
-import freemind.main.XMLElement;
+import freemind.main.*;
 import freemind.preferences.FreemindPropertyListener;
 
 public abstract class CloudAdapter extends LineAdapter implements MindMapCloud {
@@ -130,7 +127,7 @@ public abstract class CloudAdapter extends LineAdapter implements MindMapCloud {
 	}
 
 	protected String getStandardColorPropertyString() {
-		return FreeMind.RESOURCES_CLOUD_COLOR;
+		return FreeMindContants.RESOURCES_CLOUD_COLOR;
 	}
 
 	protected String getStandardStylePropertyString() {
@@ -141,7 +138,7 @@ public abstract class CloudAdapter extends LineAdapter implements MindMapCloud {
 			FreemindPropertyListener {
 		public void propertyChanged(String propertyName, String newValue,
 				String oldValue) {
-			if (propertyName.equals(FreeMind.RESOURCES_CLOUD_COLOR)) {
+			if (propertyName.equals(FreeMindContants.RESOURCES_CLOUD_COLOR)) {
 				CloudAdapter.standardColor = Tools.xmlToColor(newValue);
 			}
 			if (propertyName.equals(RESOURCES_STANDARDCLOUDSTYLE)) {

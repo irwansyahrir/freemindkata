@@ -52,12 +52,7 @@ import javax.swing.JOptionPane;
 
 import freemind.common.OptionalDontShowMeAgainDialog;
 import freemind.common.UnicodeReader;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.HtmlTools;
-import freemind.main.Resources;
-import freemind.main.Tools;
-import freemind.main.XMLParseException;
+import freemind.main.*;
 import freemind.modes.MapAdapter;
 import freemind.modes.MindMapLinkRegistry;
 import freemind.modes.MindMapNode;
@@ -77,7 +72,7 @@ public class MindMapMapModel extends MapAdapter {
 	 * sure.
 	 */
 	public static final String EXPECTED_START_STRINGS[] = {
-			MAP_INITIAL_START + FreeMind.XML_VERSION + "\"",
+			MAP_INITIAL_START + FreeMindContants.XML_VERSION + "\"",
 			MAP_INITIAL_START + "0.7.1\"" };
 
 	//
@@ -325,7 +320,7 @@ public class MindMapMapModel extends MapAdapter {
 	public void getXml(Writer fileout, boolean saveInvisible,
 			MindMapNode pRootNode) throws IOException {
 		fileout.write("<map ");
-		fileout.write("version=\"" + FreeMind.XML_VERSION + "\"");
+		fileout.write("version=\"" + FreeMindContants.XML_VERSION + "\"");
 		fileout.write(">\n");
 		fileout.write("<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->\n");
 		getRegistry().save(fileout);
@@ -502,7 +497,7 @@ public class MindMapMapModel extends MapAdapter {
 						mModeController,
 						new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 								mModeController.getController(),
-								FreeMind.RESOURCES_CONVERT_TO_CURRENT_VERSION),
+								FreeMindContants.RESOURCES_CONVERT_TO_CURRENT_VERSION),
 						OptionalDontShowMeAgainDialog.ONLY_OK_SELECTION_IS_STORED)
 						.show().getResult();
 				if (showResult != JOptionPane.OK_OPTION) {

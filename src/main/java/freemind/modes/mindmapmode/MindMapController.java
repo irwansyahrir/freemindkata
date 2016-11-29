@@ -74,6 +74,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 
+import freemind.main.*;
 import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.JiBXException;
 
@@ -113,14 +114,6 @@ import freemind.extensions.ModeControllerHook;
 import freemind.extensions.NodeHook;
 import freemind.extensions.PermanentNodeHook;
 import freemind.extensions.UndoEventReceiver;
-import freemind.main.ExampleFileFilter;
-import freemind.main.FixedHTMLWriter;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.HtmlTools;
-import freemind.main.Resources;
-import freemind.main.Tools;
-import freemind.main.XMLElement;
 import freemind.modes.ControllerAdapter;
 import freemind.modes.EdgeAdapter;
 import freemind.modes.FreeMindFileDialog;
@@ -249,7 +242,7 @@ public class MindMapController extends ControllerAdapter implements
 					MindMapController.this,
 					new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 							getController(),
-							FreeMind.RESOURCES_RELOAD_FILES_WITHOUT_QUESTION),
+							FreeMindContants.RESOURCES_RELOAD_FILES_WITHOUT_QUESTION),
 					OptionalDontShowMeAgainDialog.BOTH_OK_AND_CANCEL_OPTIONS_ARE_STORED)
 					.show().getResult();
 			if (showResult != JOptionPane.OK_OPTION) {

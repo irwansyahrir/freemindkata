@@ -31,16 +31,13 @@ import java.util.regex.Matcher;
 
 import javax.swing.JOptionPane;
 
+import freemind.main.*;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.ModuleNode;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.codehaus.groovy.runtime.InvokerHelper;
 
 import freemind.common.OptionalDontShowMeAgainDialog;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.FreeMindSecurityManager;
-import freemind.main.Tools;
 import freemind.main.Tools.BooleanHolder;
 import freemind.modes.MindMapNode;
 import freemind.modes.attributes.NodeAttributeTableModel;
@@ -161,7 +158,7 @@ public class ScriptingEngine extends MindMapHookAdapter {
 					pMindMapController,
 					new OptionalDontShowMeAgainDialog.StandardPropertyHandler(
 							pMindMapController.getController(),
-							FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING),
+							FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING),
 					OptionalDontShowMeAgainDialog.ONLY_OK_SELECTION_IS_STORED)
 					.show().getResult();
 			if (showResult != JOptionPane.OK_OPTION) {
@@ -195,15 +192,15 @@ public class ScriptingEngine extends MindMapHookAdapter {
 		 * such that the scripts are not able to change them).
 		 */
 		String executeWithoutAsking = frame
-				.getProperty(FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING);
+				.getProperty(FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING);
 		String executeWithoutFileRestriction = frame
-				.getProperty(FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION);
+				.getProperty(FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION);
 		String executeWithoutNetworkRestriction = frame
-				.getProperty(FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION);
+				.getProperty(FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION);
 		String executeWithoutExecRestriction = frame
-				.getProperty(FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION);
+				.getProperty(FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION);
 		String signedScriptsWithoutRestriction = frame
-				.getProperty(FreeMind.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED);
+				.getProperty(FreeMindContants.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED);
 		/* *************** */
 		/* **Signature ** */
 		/* *************** */
@@ -275,18 +272,18 @@ public class ScriptingEngine extends MindMapHookAdapter {
 			System.setOut(oldOut);
 			/* restore preferences (and assure that the values are unchanged!). */
 			frame.setProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING,
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_ASKING,
 					executeWithoutAsking);
 			frame.setProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION,
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION,
 					executeWithoutFileRestriction);
 			frame.setProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION,
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION,
 					executeWithoutNetworkRestriction);
 			frame.setProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION,
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION,
 					executeWithoutExecRestriction);
-			frame.setProperty(FreeMind.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED,
+			frame.setProperty(FreeMindContants.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED,
 					signedScriptsWithoutRestriction);
 		}
 		/*

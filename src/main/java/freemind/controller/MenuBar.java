@@ -40,7 +40,7 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.modes.ModeController;
 import freemind.view.MapModule;
 
@@ -334,24 +334,24 @@ public class MenuBar extends JMenuBar {
 		JMenuItem previousMap = menuHolder.addAction(c.navigationPreviousMap,
 				MINDMAP_MENU + "navigate/navigationPreviousMap");
 		previousMap.setAccelerator(KeyStroke.getKeyStroke(c.getFrame()
-				.getAdjustableProperty(FreeMind.KEYSTROKE_PREVIOUS_MAP)));
+				.getAdjustableProperty(FreeMindContants.KEYSTROKE_PREVIOUS_MAP)));
 
 		JMenuItem nextMap = menuHolder.addAction(c.navigationNextMap,
 				MINDMAP_MENU + "navigate/navigationNextMap");
 		nextMap.setAccelerator(KeyStroke.getKeyStroke(c.getFrame()
-				.getAdjustableProperty(FreeMind.KEYSTROKE_NEXT_MAP)));
+				.getAdjustableProperty(FreeMindContants.KEYSTROKE_NEXT_MAP)));
 
 		JMenuItem MoveMapLeft = menuHolder.addAction(
 				c.navigationMoveMapLeftAction, MINDMAP_MENU
 						+ "navigate/navigationMoveMapLeft");
 		MoveMapLeft.setAccelerator(KeyStroke.getKeyStroke(c.getFrame()
-				.getAdjustableProperty(FreeMind.KEYSTROKE_MOVE_MAP_LEFT)));
+				.getAdjustableProperty(FreeMindContants.KEYSTROKE_MOVE_MAP_LEFT)));
 
 		JMenuItem MoveMapRight = menuHolder.addAction(
 				c.navigationMoveMapRightAction, MINDMAP_MENU
 						+ "navigate/navigationMoveMapRight");
 		MoveMapRight.setAccelerator(KeyStroke.getKeyStroke(c.getFrame()
-				.getAdjustableProperty(FreeMind.KEYSTROKE_MOVE_MAP_RIGHT)));
+				.getAdjustableProperty(FreeMindContants.KEYSTROKE_MOVE_MAP_RIGHT)));
 
 		// option menu item moved to mindmap_menus.xml
 

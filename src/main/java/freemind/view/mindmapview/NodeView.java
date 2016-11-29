@@ -52,11 +52,7 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeNode;
 
 import freemind.controller.Controller;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindMain;
-import freemind.main.HtmlTools;
-import freemind.main.Resources;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.MindIcon;
 import freemind.modes.MindMapCloud;
 import freemind.modes.MindMapNode;
@@ -128,11 +124,11 @@ public class NodeView extends JComponent implements TreeModelListener {
 				public void propertyChanged(String pPropertyName,
 						String pNewValue, String pOldValue) {
 					if (Tools.safeEquals(pPropertyName,
-							FreeMind.TOOLTIP_DISPLAY_TIME)) {
+							FreeMindContants.TOOLTIP_DISPLAY_TIME)) {
 						// control tooltip times:
 						ToolTipManager.sharedInstance().setDismissDelay(
 								Resources.getInstance().getIntProperty(
-										FreeMind.TOOLTIP_DISPLAY_TIME, 4000));
+										FreeMindContants.TOOLTIP_DISPLAY_TIME, 4000));
 					}
 				}
 			};

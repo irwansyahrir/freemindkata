@@ -30,10 +30,7 @@ import freemind.controller.MenuItemSelectedListener;
 import freemind.controller.actions.generated.instance.EditNoteToNodeAction;
 import freemind.controller.actions.generated.instance.XmlAction;
 import freemind.extensions.HookRegistration;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.Resources;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.MindMap;
 import freemind.modes.MindMapNode;
 import freemind.modes.ModeController;
@@ -287,7 +284,7 @@ public class NodeNoteRegistration implements HookRegistration, ActorXml,
 
 	public boolean shouldUseSplitPane() {
 		return "true".equals(controller.getFrame().getProperty(
-				FreeMind.RESOURCES_USE_SPLIT_PANE));
+				FreeMindContants.RESOURCES_USE_SPLIT_PANE));
 	}
 
 	class JumpToMapAction extends AbstractAction {
@@ -349,7 +346,7 @@ public class NodeNoteRegistration implements HookRegistration, ActorXml,
 		southPanel.add(noteViewerComponent, BorderLayout.CENTER);
 		noteViewerComponent.setVisible(true);
 		if ("true".equals(controller.getFrame().getProperty(
-				FreeMind.RESOURCES_USE_DEFAULT_FONT_FOR_NOTES_TOO))) {
+				FreeMindContants.RESOURCES_USE_DEFAULT_FONT_FOR_NOTES_TOO))) {
 			// set default font for notes:
 			Font defaultFont = controller.getController().getDefaultFont();
 			if (Resources.getInstance().getBoolProperty(
@@ -369,7 +366,7 @@ public class NodeNoteRegistration implements HookRegistration, ActorXml,
 			rule += "font-size: " + defaultFont.getSize() + "pt;";
 			rule += "}\n";
 			if ("true".equals(controller.getFrame().getProperty(
-					FreeMind.RESOURCES_USE_MARGIN_TOP_ZERO_FOR_NOTES))) {
+					FreeMindContants.RESOURCES_USE_MARGIN_TOP_ZERO_FOR_NOTES))) {
 				/*
 				 * this is used for paragraph spacing. I put it here, too, as
 				 * the tooltip display uses the same spacing. But it is to be
@@ -413,14 +410,14 @@ public class NodeNoteRegistration implements HookRegistration, ActorXml,
 		}
 		boolean showIcon = enabled;
 		if (Resources.getInstance().getBoolProperty(
-				FreeMind.RESOURCES_DON_T_SHOW_NOTE_ICONS)) {
+				FreeMindContants.RESOURCES_DON_T_SHOW_NOTE_ICONS)) {
 			showIcon = false;
 		}
 		node.setStateIcon(NodeNoteBase.NODE_NOTE_ICON, (showIcon) ? noteIcon
 				: null);
 		// tooltip, first try.
 		if (!Resources.getInstance().getBoolProperty(
-				FreeMind.RESOURCES_DON_T_SHOW_NOTE_TOOLTIPS)) {
+				FreeMindContants.RESOURCES_DON_T_SHOW_NOTE_TOOLTIPS)) {
 			getMindMapController().setToolTip(node, "nodeNoteText",
 					(enabled) ? node.getNoteText() : null);
 		}

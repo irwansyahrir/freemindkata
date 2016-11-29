@@ -68,6 +68,7 @@ import freemind.controller.actions.generated.instance.PatternNodeText;
 import freemind.controller.actions.generated.instance.PatternPropertyBase;
 import freemind.controller.actions.generated.instance.PatternScript;
 import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.modes.EdgeAdapter;
 import freemind.modes.MindIcon;
 import freemind.modes.MindMapNode;
@@ -323,7 +324,7 @@ public class StylePatternFrame extends JPanel implements TextTranslator,
 		controls.add(mSetNodeColor);
 		FreeMind fmMain = (FreeMind) mMindMapController.getFrame();
 		mNodeColor = new ColorProperty(NODE_COLOR + ".tooltip", NODE_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_NODE_TEXT_COLOR),
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_NODE_TEXT_COLOR),
 				this);
 		controls.add(mNodeColor);
 		mSetNodeBackgroundColor = new ThreeCheckBoxProperty(
@@ -332,7 +333,7 @@ public class StylePatternFrame extends JPanel implements TextTranslator,
 		controls.add(mSetNodeBackgroundColor);
 		mNodeBackgroundColor = new ColorProperty(NODE_BACKGROUND_COLOR
 				+ ".tooltip", NODE_BACKGROUND_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_BACKGROUND_COLOR),
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_BACKGROUND_COLOR),
 				this);
 		controls.add(mNodeBackgroundColor);
 		controls.add(new SeparatorProperty("NodeStyles"));
@@ -411,7 +412,7 @@ public class StylePatternFrame extends JPanel implements TextTranslator,
 				SET_EDGE_COLOR);
 		controls.add(mSetEdgeColor);
 		mEdgeColor = new ColorProperty(EDGE_COLOR + ".tooltip", EDGE_COLOR,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_EDGE_COLOR), this);
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_EDGE_COLOR), this);
 		controls.add(mEdgeColor);
 		/* **** */
 		controls.add(new SeparatorProperty("ScriptingControl"));
@@ -460,17 +461,17 @@ public class StylePatternFrame extends JPanel implements TextTranslator,
 		FreeMind fmMain = (FreeMind) mMindMapController.getFrame();
 		setPatternControls(pattern.getPatternNodeColor(), mSetNodeColor,
 				mNodeColor,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_NODE_TEXT_COLOR));
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_NODE_TEXT_COLOR));
 		setPatternControls(pattern.getPatternNodeBackgroundColor(),
 				mSetNodeBackgroundColor, mNodeBackgroundColor,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_BACKGROUND_COLOR));
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_BACKGROUND_COLOR));
 		setPatternControls(pattern.getPatternNodeStyle(), mSetNodeStyle,
 				mNodeStyle, MindMapNode.STYLE_AS_PARENT);
 		setPatternControls(pattern.getPatternNodeText(), mSetNodeText,
 				mNodeText, "");
 		setPatternControls(pattern.getPatternEdgeColor(), mSetEdgeColor,
 				mEdgeColor,
-				fmMain.getDefaultProperty(FreeMind.RESOURCES_EDGE_COLOR));
+				fmMain.getDefaultProperty(FreeMindContants.RESOURCES_EDGE_COLOR));
 		setPatternControls(pattern.getPatternEdgeStyle(), mSetEdgeStyle,
 				mEdgeStyle, EDGE_STYLES[0]);
 		setPatternControls(pattern.getPatternEdgeWidth(), mSetEdgeWidth,

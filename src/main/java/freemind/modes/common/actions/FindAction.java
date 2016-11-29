@@ -42,10 +42,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import freemind.main.FreeMind;
-import freemind.main.HtmlTools;
-import freemind.main.Resources;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.ControllerAdapter;
 import freemind.modes.MindMapNode;
 
@@ -133,7 +130,7 @@ public class FindAction extends AbstractAction {
 			Resources
 					.getInstance()
 					.getProperties()
-					.setProperty(FreeMind.RESOURCES_SEARCH_IN_NOTES_TOO,
+					.setProperty(FreeMindContants.RESOURCES_SEARCH_IN_NOTES_TOO,
 							mFindInNotesTooBox.isSelected() ? "true" : "false");
 			mLastSearchString = mSearchField.getText();
 		}
@@ -184,7 +181,7 @@ public class FindAction extends AbstractAction {
 				controller
 						.getText("ExtendedFindDialog.find_search_in_notes_too"));
 		mFindInNotesTooBox.setSelected(Resources.getInstance().getBoolProperty(
-				FreeMind.RESOURCES_SEARCH_IN_NOTES_TOO));
+				FreeMindContants.RESOURCES_SEARCH_IN_NOTES_TOO));
 		Tools.setLabelAndMnemonic(mFindInNotesTooBox, null);
 		contentPane.add(mFindInNotesTooBox, new GridBagConstraints(0, 2, 3, 1,
 				1.0, 1.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
@@ -276,7 +273,7 @@ public class FindAction extends AbstractAction {
 			Collection subterms, boolean caseSensitive) {
 		// Precondition: if !caseSensitive then >>what<< is in lowercase.
 		boolean searchInNotesToo = Resources.getInstance().getBoolProperty(
-				FreeMind.RESOURCES_SEARCH_IN_NOTES_TOO);
+				FreeMindContants.RESOURCES_SEARCH_IN_NOTES_TOO);
 
 		// Fold the path of previously found node
 		boolean thereWereNodesToBeFolded = !findNodesUnfoldedByLastFind

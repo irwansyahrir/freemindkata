@@ -51,7 +51,7 @@ import freemind.controller.MenuItemSelectedListener;
 import freemind.controller.StructuredMenuHolder;
 import freemind.controller.actions.generated.instance.LogFileViewerConfigurationStorage;
 import freemind.extensions.HookRegistration;
-import freemind.main.FreeMind;
+import freemind.main.FreeMindContants;
 import freemind.main.LogFileLogHandler;
 import freemind.main.LogFileLogHandler.LogReceiver;
 import freemind.main.Tools;
@@ -230,7 +230,7 @@ public class LogFileViewer extends MindMapHookAdapter implements
 		final String pathname = getMindMapController().getFrame()
 				.getFreemindDirectory()
 				+ File.separator
-				+ FreeMind.LOG_FILE_NAME + ".0";
+				+ FreeMindContants.LOG_FILE_NAME + ".0";
 		String logFileContents = Tools.getFile(new File(pathname));
 		// done.
 		getMindMapController().getController().getMapModuleManager()

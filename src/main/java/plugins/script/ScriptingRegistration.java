@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
+import freemind.main.FreeMindContants;
 import plugins.script.ScriptEditorPanel.ScriptHolder;
 import plugins.script.ScriptEditorPanel.ScriptModel;
 import plugins.script.ScriptingEngine.ErrorHandler;
@@ -20,7 +21,6 @@ import freemind.common.TextTranslator;
 import freemind.controller.actions.generated.instance.Pattern;
 import freemind.controller.actions.generated.instance.ScriptEditorWindowConfigurationStorage;
 import freemind.extensions.HookRegistration;
-import freemind.main.FreeMind;
 import freemind.main.FreeMindMain.StartupDoneListener;
 import freemind.main.HtmlTools;
 import freemind.main.Tools;
@@ -53,24 +53,24 @@ public class ScriptingRegistration implements HookRegistration,
 			controls.add(new SeparatorProperty(
 					"plugins/scripting/separatorPropertyName"));
 			controls.add(new BooleanProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION
 							+ ".tooltip",
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION));
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_FILE_RESTRICTION));
 			controls.add(new BooleanProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION
 							+ ".tooltip",
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION));
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_NETWORK_RESTRICTION));
 			controls.add(new BooleanProperty(
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION
 							+ ".tooltip",
-					FreeMind.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION));
+					FreeMindContants.RESOURCES_EXECUTE_SCRIPTS_WITHOUT_EXEC_RESTRICTION));
 			controls.add(new BooleanProperty(
-					FreeMind.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED + ".tooltip",
-					FreeMind.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED));
+					FreeMindContants.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED + ".tooltip",
+					FreeMindContants.RESOURCES_SIGNED_SCRIPT_ARE_TRUSTED));
 			controls.add(new StringProperty(
-					FreeMind.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING
+					FreeMindContants.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING
 							+ ".tooltip",
-					FreeMind.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING));
+					FreeMindContants.RESOURCES_SCRIPT_USER_KEY_NAME_FOR_SIGNING));
 			return controls;
 		}
 	}

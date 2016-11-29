@@ -89,11 +89,7 @@ import freemind.controller.MapModuleManager.MapModuleChangeObserver;
 import freemind.controller.actions.generated.instance.MindmapLastStateStorage;
 import freemind.controller.filter.FilterController;
 import freemind.controller.printpreview.PreviewDialog;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.FreeMindMain;
-import freemind.main.Resources;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.MindMap;
 import freemind.modes.Mode;
 import freemind.modes.ModeController;
@@ -1733,16 +1729,16 @@ public class Controller implements MapModuleChangeObserver {
 
 	public void toggleSelectionAsRectangle() {
 		if (isSelectionAsRectangle()) {
-			setProperty(FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
+			setProperty(FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
 					BooleanProperty.FALSE_VALUE);
 		} else {
-			setProperty(FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
+			setProperty(FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION,
 					BooleanProperty.TRUE_VALUE);
 		}
 	}
 
 	private boolean isSelectionAsRectangle() {
-		return getProperty(FreeMind.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)
+		return getProperty(FreeMindContants.RESOURCE_DRAW_RECTANGLE_FOR_SELECTION)
 				.equalsIgnoreCase(BooleanProperty.TRUE_VALUE);
 	}
 
@@ -1932,7 +1928,7 @@ public class Controller implements MapModuleChangeObserver {
 
 		public void propertyChanged(String propertyName, String newValue,
 				String oldValue) {
-			if (propertyName.equals(FreeMind.RESOURCES_SELECTION_METHOD)) {
+			if (propertyName.equals(FreeMindContants.RESOURCES_SELECTION_METHOD)) {
 				changeSelection(newValue);
 			}
 		}
