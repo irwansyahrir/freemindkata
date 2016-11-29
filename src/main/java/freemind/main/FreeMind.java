@@ -98,32 +98,15 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
     private Logger logger = null;
 
-    public static final String PROXY_PORT = "proxy.port";
+	public static Properties userProperties;
 
-	public static final String PROXY_HOST = "proxy.host";
-
-	public static final String PROXY_PASSWORD = "proxy.password";
-
-	public static final String PROXY_USER = "proxy.user";
-
-	public static final String PROXY_IS_AUTHENTICATED = "proxy.is_authenticated";
-
-	public static final String PROXY_USE_SETTINGS = "proxy.use_settings";
-
-
-    // public static final String defaultPropsURL = "freemind.properties";
-	// public static Properties defaultProps;
-	public static Properties props;
-
-	private static Properties defProps;
+	private static Properties defaultProperties;
 
 	private MenuBar menuBar;
 
 	private JLabel status;
 
 	private Map filetypes; // Hopefully obsolete. Used to store applications
-
-	// used to open different file types
 
 	private File autoPropertiesFile;
 
@@ -156,47 +139,42 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
 	private static LogFileLogHandler sLogFileHandler;
 
-	public FreeMind(Properties pDefaultPreferences,
-			Properties pUserPreferences, File pAutoPropertiesFile) {
-		super("FreeMind");
-		// Focus searcher
+	public FreeMind(Properties defaultProp, Properties userProp, File autoPropertiesFile) {
+		super("FreeMind Kata");
 		System.setSecurityManager(new FreeMindSecurityManager());
-		defProps = pDefaultPreferences;
-		props = pUserPreferences;
-		autoPropertiesFile = pAutoPropertiesFile;
+		defaultProperties = defaultProp;
+		userProperties = userProp;
+		this.autoPropertiesFile = autoPropertiesFile;
 		if (logger == null) {
 			logger = getLogger(FreeMind.class.getName());
-			StringBuffer info = new StringBuffer();
-			info.append("freemind_version = ");
-			info.append(FreeMindContants.VERSION);
-			info.append("; freemind_xml_version = ");
-			info.append(FreeMindContants.XML_VERSION);
-			try {
-				String propsLoc = "version.properties";
-				URL versionUrl = this.getClass().getClassLoader()
-						.getResource(propsLoc);
-				Properties buildNumberPros = new Properties();
-				InputStream stream = versionUrl.openStream();
-				buildNumberPros.load(stream);
-				info.append("\nBuild: "
-						+ buildNumberPros.getProperty("build.number") + "\n");
-				stream.close();
-			} catch (Exception e) {
-				info.append("Problems reading build number file: " + e);
-			}
-			info.append("\njava_version = ");
-			info.append(System.getProperty("java.version"));
-			info.append("; os_name = ");
-			info.append(System.getProperty("os.name"));
-			info.append("; os_version = ");
-			info.append(System.getProperty("os.version"));
-			logger.info(info.toString());
+            logger.info(getLoggerInfo().toString());
 		}
 		mFreeMindCommon = new FreeMindCommon(this);
 		Resources.createInstance(this);
 	}
 
-	void init(FeedBack feedback) {
+    private StringBuilder getLoggerInfo() {
+        StringBuilder info = new StringBuilder();
+        info.append("freemind_version = ").append(FreeMindContants.VERSION);
+        info.append("; freemind_xml_version = ").append(FreeMindContants.XML_VERSION);
+        try {
+            String propsLoc = "version.properties";
+            URL versionUrl = this.getClass().getClassLoader().getResource(propsLoc);
+            Properties buildNumberPros = new Properties();
+            InputStream stream = versionUrl.openStream();
+            buildNumberPros.load(stream);
+            info.append("\nBuild: " + buildNumberPros.getProperty("build.number") + "\n");
+            stream.close();
+        } catch (Exception e) {
+            info.append("Problems reading build number file: " + e);
+        }
+        info.append("\njava_version = ").append(System.getProperty("java.version"));
+        info.append("; os_name = ").append(System.getProperty("os.name"));
+        info.append("; os_version = ").append(System.getProperty("os.version"));
+        return info;
+    }
+
+    void init(FeedBack feedback) {
 		/* This is only for apple but does not harm for the others. */
 		System.setProperty("apple.laf.useScreenMenuBar", "true");
 		patternsFile = new File(getFreemindDirectory(),
@@ -265,7 +243,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	private void updateLookAndFeel() {
 		// set Look&Feel
 		try {
-			String lookAndFeel = props.getProperty(FreeMindContants.RESOURCE_LOOKANDFEEL);
+			String lookAndFeel = userProperties.getProperty(FreeMindContants.RESOURCE_LOOKANDFEEL);
 			if (lookAndFeel.equals("windows")) {
 				UIManager
 						.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -296,7 +274,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		} catch (Exception ex) {
 			System.err.println("Unable to set Look & Feel.");
 		}
-		mFreeMindCommon.loadUIProperties(defProps);
+		mFreeMindCommon.loadUIProperties(defaultProperties);
 	}
 
 	public boolean isApplet() {
@@ -337,7 +315,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	}
 
 	public String getProperty(String key) {
-		return props.getProperty(key);
+		return userProperties.getProperty(key);
 	}
 
 	public int getIntProperty(String key, int defaultValue) {
@@ -349,19 +327,19 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	}
 
 	public Properties getProperties() {
-		return props;
+		return userProperties;
 	}
 
 	public void setProperty(String key, String value) {
-		props.setProperty(key, value);
+		userProperties.setProperty(key, value);
 	}
 
 	public String getDefaultProperty(String key) {
-		return defProps.getProperty(key);
+		return defaultProperties.getProperty(key);
 	}
 
 	public void setDefaultProperty(String key, String value) {
-		defProps.setProperty(key, value);
+		defaultProperties.setProperty(key, value);
 	}
 
 	public String getFreemindDirectory() {
@@ -379,8 +357,8 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			outputStreamWriter.write(FreeMindContants.VERSION.toString());
 			outputStreamWriter.write('\n');
 			outputStreamWriter.flush();
-			//to save as few props as possible.
-			Properties toBeStored = Tools.copyChangedProperties(props, defProps);
+			//to save as few userProperties as possible.
+			Properties toBeStored = Tools.copyChangedProperties(userProperties, defaultProperties);
 			toBeStored.store(out, null);
         } catch (Exception ex) {
 			Resources.getInstance().logException(ex);
@@ -840,7 +818,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 	private void setupSpellChecking() {
 		boolean checkSpelling =
 //			Resources.getInstance().getBoolProperty(FreeMindCommon.CHECK_SPELLING);
-			Tools.safeEquals("true", props.getProperty(FreeMindCommon.CHECK_SPELLING));
+			Tools.safeEquals("true", userProperties.getProperty(FreeMindCommon.CHECK_SPELLING));
 		if (checkSpelling) {
 			try {
 				// TODO filter languages in dictionaries.properties like this:
@@ -865,14 +843,14 @@ public class FreeMind extends JFrame implements FreeMindMain {
 
 	private void setupProxy() {
 		// proxy settings
-		if("true".equals(props.getProperty(PROXY_USE_SETTINGS))) {
-			if ("true".equals(props.getProperty(PROXY_IS_AUTHENTICATED))) {
-				Authenticator.setDefault(new ProxyAuthenticator(props
-						.getProperty(PROXY_USER), Tools.decompress(props
-						.getProperty(PROXY_PASSWORD))));
+		if("true".equals(userProperties.getProperty(FreeMindProxy.PROXY_USE_SETTINGS))) {
+			if ("true".equals(userProperties.getProperty(FreeMindProxy.PROXY_IS_AUTHENTICATED))) {
+				Authenticator.setDefault(new ProxyAuthenticator(userProperties
+						.getProperty(FreeMindProxy.PROXY_USER), Tools.decompress(userProperties
+						.getProperty(FreeMindProxy.PROXY_PASSWORD))));
 			}
-			System.setProperty("http.proxyHost", props.getProperty(PROXY_HOST));
-			System.setProperty("http.proxyPort", props.getProperty(PROXY_PORT));
+			System.setProperty("http.proxyHost", userProperties.getProperty(FreeMindProxy.PROXY_HOST));
+			System.setProperty("http.proxyPort", userProperties.getProperty(FreeMindProxy.PROXY_PORT));
 		}
 	}
 
@@ -1071,7 +1049,7 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		// (note: this must be done later when partucular
 		// initalizations of the windows are ready,
 		// perhaps after setVisible is it enough... :-?
-		int win_state = Integer.parseInt(FreeMind.props.getProperty(
+		int win_state = Integer.parseInt(FreeMind.userProperties.getProperty(
 				"appwindow_state", "0"));
 		win_state = ((win_state & ICONIFIED) != 0) ? NORMAL : win_state;
 		setExtendedState(win_state);

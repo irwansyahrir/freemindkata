@@ -79,7 +79,7 @@ public class HookDescriptorPluginAction extends HookDescriptorBase {
 	}
 
 	public String toString() {
-		return "[HookDescriptor props=" + properties + ", menu positions="
+		return "[HookDescriptor userProperties=" + properties + ", menu positions="
 				+ menuPositions + "]";
 	}
 

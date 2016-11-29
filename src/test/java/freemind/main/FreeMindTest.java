@@ -35,6 +35,6 @@ public class FreeMindTest {
     @Test
     public void testInitial() throws Exception {
         Frame freeMind = window.target();
-        assertEquals("FreeMind", freeMind.getTitle());
+        assertEquals("FreeMind Kata", freeMind.getTitle());
     }
 }

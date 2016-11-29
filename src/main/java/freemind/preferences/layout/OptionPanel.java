@@ -70,10 +70,7 @@ import freemind.common.XmlBindingTools;
 import freemind.controller.StructuredMenuHolder;
 import freemind.controller.actions.generated.instance.OptionPanelWindowConfigurationStorage;
 import freemind.controller.actions.generated.instance.WindowConfigurationStorage;
-import freemind.main.FreeMind;
-import freemind.main.FreeMindCommon;
-import freemind.main.FreeMindContants;
-import freemind.main.Tools;
+import freemind.main.*;
 import freemind.modes.IconInformation;
 import freemind.modes.MindIcon;
 import freemind.modes.MindMapNode;
@@ -487,23 +484,23 @@ public class OptionPanel implements TextTranslator {
 		// ignored by the applet (set Parameters in the html file instead). You
 		// can write '~' to indicate the users home directory. Of course this
 		// works only in the default 'freemind.properties', which is included in
-		// the jar file, not for the users freemind.props out of the jar file.",
+		// the jar file, not for the users freemind.userProperties out of the jar file.",
 		// "properties_folder")); // .freemind
 
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("proxy"));
-		controls.add(new BooleanProperty(FreeMind.PROXY_USE_SETTINGS
-				+ TOOLTIP_EXT, FreeMind.PROXY_USE_SETTINGS));
-		controls.add(new StringProperty(FreeMind.PROXY_HOST + TOOLTIP_EXT,
-				FreeMind.PROXY_HOST));
-		controls.add(new NumberProperty(FreeMind.PROXY_PORT + TOOLTIP_EXT,
-				FreeMind.PROXY_PORT, 1, 65535, 1));
-		controls.add(new BooleanProperty(FreeMind.PROXY_IS_AUTHENTICATED
-				+ TOOLTIP_EXT, FreeMind.PROXY_IS_AUTHENTICATED));
-		controls.add(new StringProperty(FreeMind.PROXY_USER + TOOLTIP_EXT,
-				FreeMind.PROXY_USER));
+		controls.add(new BooleanProperty(FreeMindProxy.PROXY_USE_SETTINGS
+				+ TOOLTIP_EXT, FreeMindProxy.PROXY_USE_SETTINGS));
+		controls.add(new StringProperty(FreeMindProxy.PROXY_HOST + TOOLTIP_EXT,
+				FreeMindProxy.PROXY_HOST));
+		controls.add(new NumberProperty(FreeMindProxy.PROXY_PORT + TOOLTIP_EXT,
+				FreeMindProxy.PROXY_PORT, 1, 65535, 1));
+		controls.add(new BooleanProperty(FreeMindProxy.PROXY_IS_AUTHENTICATED
+				+ TOOLTIP_EXT, FreeMindProxy.PROXY_IS_AUTHENTICATED));
+		controls.add(new StringProperty(FreeMindProxy.PROXY_USER + TOOLTIP_EXT,
+				FreeMindProxy.PROXY_USER));
 		controls.add(new PasswordProperty(
-				FreeMind.PROXY_PASSWORD + TOOLTIP_EXT, FreeMind.PROXY_PASSWORD));
+				FreeMindProxy.PROXY_PASSWORD + TOOLTIP_EXT, FreeMindProxy.PROXY_PASSWORD));
 
 		controls.add(new NextLineProperty());
 		controls.add(new SeparatorProperty("files"));

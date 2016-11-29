@@ -400,13 +400,13 @@ public class FreeMindCommon {
 	}
 
 	public void loadUIProperties(Properties props) {
-		// props.put(FreeMind.RESOURCES_BACKGROUND_COLOR,
+		// userProperties.put(FreeMind.RESOURCES_BACKGROUND_COLOR,
 		// Tools.colorToXml(UIManager.getColor("text")));
-		// props.put(FreeMind.RESOURCES_NODE_TEXT_COLOR,
+		// userProperties.put(FreeMind.RESOURCES_NODE_TEXT_COLOR,
 		// Tools.colorToXml(UIManager.getColor("textText")));
-		// props.put(FreeMind.RESOURCES_SELECTED_NODE_COLOR,
+		// userProperties.put(FreeMind.RESOURCES_SELECTED_NODE_COLOR,
 		// Tools.colorToXml(UIManager.getColor("textHighlight")));
-		// props.put(FreeMind.RESOURCES_SELECTED_NODE_TEXT_COLOR,
+		// userProperties.put(FreeMind.RESOURCES_SELECTED_NODE_TEXT_COLOR,
 		// Tools.colorToXml(UIManager.getColor("textHighlightText")));
 	}
 
