@@ -19,14 +19,20 @@ import static org.junit.Assert.assertEquals;
 public class FreeMindTest {
     private FrameFixture window;
 
+    Properties defaultProp;
+    Properties userProp;
+    File autoPropFile;
+
+
     @Before
     public void setUp() {
-        Properties defaultProp = new Properties();
+        defaultProp = new Properties();
+        defaultProp.setProperty("patternsfile", "");
 
-        Properties userProp = new Properties();
+        userProp = new Properties();
         userProp.setProperty("properties_folder", ".");
 
-        File autoPropFile = new File("");
+        autoPropFile = new File("");
         FreeMind frame = GuiActionRunner.execute(() -> new FreeMind(defaultProp, userProp, autoPropFile));
         window = new FrameFixture(frame);
         window.show(); // shows the frame to test
@@ -36,5 +42,7 @@ public class FreeMindTest {
     public void testInitial() throws Exception {
         Frame freeMind = window.target();
         assertEquals("FreeMind Kata", freeMind.getTitle());
+
+        FreeMind.main(null, defaultProp, userProp, autoPropFile);
     }
 }

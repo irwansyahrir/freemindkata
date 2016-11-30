@@ -688,17 +688,14 @@ public class FreeMind extends JFrame implements FreeMindMain {
 		return loggerForClass;
 	}
 
-	public static void main(final String[] args,
-			Properties pDefaultPreferences, Properties pUserPreferences,
-			File pAutoPropertiesFile) {
-		final FreeMind frame = new FreeMind(pDefaultPreferences,
-				pUserPreferences, pAutoPropertiesFile);
+	public static void main(final String[] args, Properties defaultProp, Properties userProp, File autoProp) {
+		final FreeMind frame = new FreeMind(defaultProp, userProp, autoProp);
 		IFreeMindSplash splash = null;
 		frame.checkForAnotherInstance(args);
 		frame.initServer();
 		final FeedBack feedBack;
 		// change here, if you don't like the splash
-		if (true) {
+		if (false) {
 			splash = new FreeMindSplashModern(frame);
 			splash.setVisible(true);
 			feedBack = splash.getFeedBack();
@@ -711,22 +708,18 @@ public class FreeMind extends JFrame implements FreeMindMain {
 					return value;
 				}
 
-				public void increase(String messageId,
-						Object[] pMessageParameters) {
-					progress(getActualValue() + 1, messageId,
-							pMessageParameters);
+				public void increase(String messageId, Object[] pMessageParameters) {
+					progress(getActualValue() + 1, messageId, pMessageParameters);
 				}
 
-				public void progress(int act, String messageId,
-						Object[] pMessageParameters) {
+				public void progress(int act, String messageId, Object[] pMessageParameters) {
 					frame.logger.info("Beginnig task:" + messageId);
 				}
 
 				public void setMaximumValue(int max) {
 				}
 			};
-			frame.mWindowIcon = new ImageIcon(
-					frame.getResource("images/FreeMindWindowIcon.png"));
+			frame.mWindowIcon = new ImageIcon(frame.getResource("images/FreeMindWindowIcon.png"));
 		}
 		feedBack.setMaximumValue(10 + frame.getMaximumNumberOfMapsToLoad(args));
 		frame.init(feedBack);
@@ -764,11 +757,6 @@ public class FreeMind extends JFrame implements FreeMindMain {
 			Tools.safeEquals("true", userProperties.getProperty(FreeMindCommon.CHECK_SPELLING));
 		if (checkSpelling) {
 			try {
-				// TODO filter languages in dictionaries.properties like this:
-//				String[] languages = "en,de,es,fr,it,nl,pl,ru,ar".split(",");
-//				for (int i = 0; i < languages.length; i++) {
-//					System.out.println(new File("dictionary_" + languages[i] + ".ortho").exists());
-//				}
 				String decodedPath = Tools.getFreeMindBasePath();
 				URL url = null;
 				if (new File (decodedPath).exists()) {

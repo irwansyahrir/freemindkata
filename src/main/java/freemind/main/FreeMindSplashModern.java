@@ -18,25 +18,11 @@
 
 package freemind.main;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.text.MessageFormat;
 import java.util.Set;
 import java.util.logging.Logger;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
-import javax.swing.JRootPane;
-import javax.swing.SwingUtilities;
 
 /**
  * Class to put a splash during launching the application.
@@ -126,8 +112,7 @@ public class FreeMindSplashModern extends JFrame implements IFreeMindSplash {
 
 		// http://www.kde-look.org/content/show.php?content=76812
 		// License GPLV2+
-		mIcon = new ImageIcon(
-				frame.getResource("images/76812-freemind_v0.4.png"));
+		mIcon = new ImageIcon(frame.getResource("/Users/irwansyahrir/Desktop/Codes/freemindkata/images/76812-freemind_v0.4.png"));
 		setIconImage(mIcon.getImage()); // Set the icon
 		setDefaultLookAndFeelDecorated(false);
 		setUndecorated(true);
